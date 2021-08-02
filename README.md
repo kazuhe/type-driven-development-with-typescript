@@ -1,6 +1,8 @@
 # type-driven-development-with-typescript
 Type-Driven Development with TypeScript 🦅
 
+https://zenn.dev/kazuhe/articles/type-driven-development-typescript
+
 ## Project setup
 ```
 yarn install
@@ -11,20 +13,7 @@ yarn install
 yarn serve
 ```
 
-### Compiles and minifies for production
-```
-yarn build
-```
-
 ### Run your unit tests
 ```
 yarn test:unit
 ```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
