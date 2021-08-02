@@ -37,7 +37,10 @@ type ChangeIcon = (
 ) => (newIcon: string) => void
 
 export const changeIcon: ChangeIcon =
-  (icon, toggleDisplayOfIconSelectionModal) => (newIcon) => {}
+  (icon, toggleDisplayOfIconSelectionModal) => (newIcon) => {
+    icon.value = newIcon
+    toggleDisplayOfIconSelectionModal()
+  }
 
 /**
  * UseIcon
