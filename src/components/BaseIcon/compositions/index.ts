@@ -1,25 +1,46 @@
 import { Ref } from 'vue'
 
-// [必要な状態]
-// - 現在選択されていてる絵文字
+/**
+ * アイコン（絵文字）
+ */
 type Icon = Ref<string>
 
-// - アイコン選択モーダルの表示状態
+/**
+ * アイコン選択画面が表示されている状態
+ */
 type IsShownIconSelectionModal = Ref<boolean>
 
-// [必要な関数]
-// - アイコン選択モーダルが表示されていれば非表示に、非表示であれば表示する関数
+/**
+ * アイコン選択画面を表示/非表示する関数
+ *
+ * @param isShownIconSelectionModal アイコン選択画面が表示されている状態
+ * @returns アイコン選択画面を表示/非表示するカリー化関数
+ */
 type ToggleDisplayOfIconSelectionModal = (
   isShownIconSelectionModal: IsShownIconSelectionModal
 ) => () => void
 
-// - アイコン選択モーダルの中の絵文字がクリックされたら既存の絵文字を変更する関数
+export const toggleDisplayOfIconSelectionModal: ToggleDisplayOfIconSelectionModal =
+  (isShownIconSelectionModal) => () => {}
+
+/**
+ * アイコンを設定する関数
+ *
+ * @param icon アイコン
+ * @param toggleDisplayOfIconSelectionModal アイコン選択画面を表示/非表示する関数
+ * @returns アイコンを設定するカリー化関数
+ */
 type ChangeIcon = (
   icon: Icon,
   toggleDisplayOfIconSelectionModal: ReturnType<ToggleDisplayOfIconSelectionModal>
 ) => (newIcon: string) => void
 
-// - Vue.jsから利用する為のuseXXX関数
+export const changeIcon: ChangeIcon =
+  (icon, toggleDisplayOfIconSelectionModal) => (newIcon) => {}
+
+/**
+ * UseIcon
+ */
 type UseIcon = (
   isShownIconSelectionModal: IsShownIconSelectionModal,
   icon: Icon
@@ -27,3 +48,5 @@ type UseIcon = (
   toggleDisplayOfIconSelectionModal: ReturnType<ToggleDisplayOfIconSelectionModal>
   changeIcon: ReturnType<ChangeIcon>
 }
+
+export const useIcon: UseIcon = (isShownIconSelectionModal, icon) => {}
