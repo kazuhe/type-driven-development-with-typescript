@@ -23,6 +23,18 @@ describe('toggleDisplayOfIconSelectionModal', () => {
 })
 
 describe('changeIcon', () => {
-  test.todo('iconが既存のアイコンから新しいアイコンに変更されること')
-  test.todo('toggleDisplayOfIconSelectionModalがコールされていること')
+  const icon = ref('🐶')
+  const newIcon = '🐱'
+  const toggleDisplayOfIconSelectionModalMock = jest.fn()
+  beforeEach(() => {
+    toggleDisplayOfIconSelectionModalMock.mockClear()
+    const testTarget = changeIcon(icon, toggleDisplayOfIconSelectionModalMock)
+    testTarget(newIcon)
+  })
+  test('iconが既存のアイコンから新しいアイコンに変更されること', () => {
+    expect(icon.value).toMatch(newIcon)
+  })
+  test('toggleDisplayOfIconSelectionModalがコールされていること', () => {
+    expect(toggleDisplayOfIconSelectionModalMock).toHaveBeenCalledTimes(1)
+  })
 })
